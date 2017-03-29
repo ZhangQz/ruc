@@ -6,15 +6,15 @@ use App\Cliente;
 
 use Illuminate\Database\Eloquent\Model;
 
-class assistencia extends Model
+class aluguer extends Model
 {
-    protected $table = "t_marca";
-    protected $primaryKey = "idMarca";
-    protected $fillable = array("nome", "stand");
+    protected $table = "aluguer";
+    protected $primaryKey = "id_aluguer";
+    protected $fillable = array("iduser", "idequipamento", "idkit", "data_inicio", "data_fim", "preco_total");
     public $timestamps = true;
 
-    public function veiculos()
+    public function iduser()
     {
-        return $this->hasMany('App\Veiculo');
+        return $this->belongsTo('App\User');
     }
 }
