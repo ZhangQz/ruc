@@ -16,4 +16,9 @@ class Noticia extends Model
 	{
 		return $this->belongsTo('App\Autor');
 	}
+
+	public function Categoria()
+	{
+		return $this->belongsTo('App\Categoria');
+	}
 }
