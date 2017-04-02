@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Noticia extends Model
 {
-	protected $table = "Noticia";
+	protected $table = "noticia";
 	protected $primaryKey = "idnoticia";
-	protected $fillable = array("titulo", "artigo", "data_noticia", "extra");
+	protected $fillable = array("titulo", "categoria", "autor", "artigo", "data_noticia", "extra");
 	public $timestamps = true;
 
 	public function Autor()

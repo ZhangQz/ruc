@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
-use App\Veiculo;
+use App\Noticia;
 use App\Autor;
-use App\Modelo;
+use App\Categoria;
 
 class AutorController extends Controller
 {
@@ -32,20 +32,20 @@ class AutorController extends Controller
 
         //verifica se o autor foi criado com sucesso
         if(is_null($autor))
-            return redirect()->route('autor.index')->withErrors('Erro ao criar Autor. Por favor, tente novamente.');
+            return redirect()->route('autor.index')->withErrors('Erro ao criar autor. Por favor, tente novamente.');
         else
-            return redirect()->route('autor.index')->with('Autor inserido com sucesso!');
+            return redirect()->route('autor.index')->with('autor inserido com sucesso!');
     }
 
     /* Método de store utilizando o facade Input
         public function store() {
-            $autor = Veiculo::create(Input::all());
+            $autor = noticia::create(Input::all());
             return redirect()->route('autors.index')->with('flash_message', 'autor inserido com sucesso!');
         }
     */
 
     public function show($id) {
-        $autor = Veiculo::findOrFail($id); //retorna o autor a mostrar
+        $autor = Noticia::findOrFail($id); //retorna o autor a mostrar
         $autor->autor = Autor::find($autor->autor); //através do ID da autor, solicita os dados da autor e guarda no parâmetro do autor
         $autor->autor = Autor::find($autor->autor); //através do ID do autor, solicita os dados do autor e guarda no parâmetro do autor
 
@@ -85,7 +85,7 @@ class AutorController extends Controller
             $dados_autor = $dados->all();
             $autor->fill($dados_autor)->save(); //atualiza os dados na BD
 
-            return redirect()->route('autor.index')->with('flash_message', 'Autor atualizado com sucesso!');
+            return redirect()->route('autor.index')->with('flash_message', 'autor atualizado com sucesso!');
         }
     }
 

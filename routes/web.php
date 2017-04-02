@@ -24,9 +24,9 @@ Route::get('home', ['as' => 'home',
 Route::get('/', 'PageController@index')->name('index');
 Route::get('creditos', 'PageController@credito')->name('creditos');
 
-Route::resource("veiculo", 'VeiculoController'); //->middleware('auth') passam a ter controlo de middleware e requer login
-Route::resource("marca", 'MarcaController');
-Route::resource("modelo", 'ModeloController');
+Route::resource("noticia", 'NoticiaController'); //->middleware('auth') passam a ter controlo de middleware e requer login
+Route::resource("categoria", 'CategoriaController');
+Route::resource("autor", 'AutorController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');

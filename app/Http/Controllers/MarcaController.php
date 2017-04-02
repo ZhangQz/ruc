@@ -32,9 +32,9 @@ class MarcaController extends Controller
 
         //verifica se o marca foi criado com sucesso
         if(is_null($marca))
-            return redirect()->route('marca.index')->withErrors('Erro ao criar Marca. Por favor, tente novamente.');
+            return redirect()->route('marca.index')->withErrors('Erro ao criar categoria. Por favor, tente novamente.');
         else
-            return redirect()->route('marca.index')->with('Marca inserido com sucesso!');
+            return redirect()->route('marca.index')->with('categoria inserido com sucesso!');
     }
 
     /* Método de store utilizando o facade Input
@@ -85,7 +85,7 @@ class MarcaController extends Controller
             $dados_marca = $dados->all();
             $marca->fill($dados_marca)->save(); //atualiza os dados na BD
 
-            return redirect()->route('marca.index')->with('flash_message', 'Marca atualizado com sucesso!');
+            return redirect()->route('marca.index')->with('flash_message', 'categoria atualizado com sucesso!');
         }
     }
 

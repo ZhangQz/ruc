@@ -28,14 +28,14 @@ class VeiculoController extends Controller
         if (is_null($veiculos))
             return redirect()->route("index")->withErrors('Erro ao carregar ve�culos. Por favor, tente mais tarde.');
         else
-           return view("veiculos.index", compact('veiculos'));
+           return view("noticia.index", compact('noticia'));
     }
 
     public function create() {
         $marcas = Marca::all(); //retorna todas as marcas
         $modelos = Modelo::all(); //retorna todos os modelos
     	
-        return view("veiculos.create", compact('marcas', 'modelos')); //envia as marcas e modelos para a view
+        return view("noticia.create", compact('marcas', 'modelos')); //envia as marcas e modelos para a view
     }
 
     public function store(Request $dados) {
@@ -51,7 +51,7 @@ class VeiculoController extends Controller
     /* M�todo de store utilizando o facade Input
         public function store() {
             $veiculo = Veiculo::create(Input::all());
-            return redirect()->route('veiculos.index')->with('flash_message', 'Ve�culo inserido com sucesso!');
+            return redirect()->route('noticia.index')->with('flash_message', 'Ve�culo inserido com sucesso!');
         }
     */
 
@@ -64,7 +64,7 @@ class VeiculoController extends Controller
         if (is_null($veiculo))
             return redirect()->route('veiculo.index')->withErrors('Erro ao carregar ve�culo. Por favor, tente novamente.');
         else
-            return view('veiculos.item', compact('veiculo'));
+            return view('noticia.item', compact('veiculo'));
     }
 
     public function edit($id) {
@@ -79,7 +79,7 @@ class VeiculoController extends Controller
             $marcas = Marca::all(); //retorna todas as marcas
             $modelos = Modelo::all(); //retorna todas os modelos
             
-            return view('veiculos.edit', compact('veiculo', 'marcas', 'modelos'));
+            return view('noticia.edit', compact('veiculo', 'marcas', 'modelos'));
         }
     }
 

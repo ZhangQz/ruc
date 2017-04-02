@@ -50,7 +50,7 @@ class NoticiaController extends Controller
 
     /* M?todo de store utilizando o facade Input
         public function store() {
-            $noticia = Noticia::create(Input::all());
+            $noticia = noticia::create(Input::all());
             return redirect()->route('noticias.index')->with('flash_message', 'noticia inserido com sucesso!');
         }
     */

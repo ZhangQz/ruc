@@ -18,7 +18,7 @@ class Grelha
 	}
 
 	/************************************
-	 * Modelo Grelha *
+	 * autor Grelha *
 	 ************************************/
 	public function createGrelha($grelhas)
 	{

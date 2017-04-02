@@ -32,14 +32,14 @@ class CategoriaController extends Controller
 
         //verifica se o categoria foi criado com sucesso
         if(is_null($categoria))
-            return redirect()->route('categoria.index')->withErrors('Erro ao criar Categoria. Por favor, tente novamente.');
+            return redirect()->route('categoria.index')->withErrors('Erro ao criar categoria. Por favor, tente novamente.');
         else
-            return redirect()->route('categoria.index')->with('Categoria inserido com sucesso!');
+            return redirect()->route('categoria.index')->with('categoria inserido com sucesso!');
     }
 
     /* Método de store utilizando o facade Input
         public function store() {
-            $categoria = Noticia::create(Input::all());
+            $categoria = noticia::create(Input::all());
             return redirect()->route('categorias.index')->with('flash_message', 'categoria inserido com sucesso!');
         }
     */
@@ -85,7 +85,7 @@ class CategoriaController extends Controller
             $dados_categoria = $dados->all();
             $categoria->fill($dados_categoria)->save(); //atualiza os dados na BD
 
-            return redirect()->route('categoria.index')->with('flash_message', 'Categoria atualizado com sucesso!');
+            return redirect()->route('categoria.index')->with('flash_message', 'categoria atualizado com sucesso!');
         }
     }
 

@@ -32,14 +32,14 @@ class ModeloController extends Controller
 
         //verifica se o veículo foi criado com sucesso
         if(is_null($modelo))
-            return redirect()->route('modelo.index')->withErrors('Erro ao criar Modelo. Por favor, tente novamente.');
+            return redirect()->route('modelo.index')->withErrors('Erro ao criar autor. Por favor, tente novamente.');
         else
-            return redirect()->route('modelo.index')->with('Modelo inserido com sucesso!');
+            return redirect()->route('modelo.index')->with('autor inserido com sucesso!');
     }
 
     /* Método de store utilizando o facade Input
         public function store() {
-            $modelo = Modelo::create(Input::all());
+            $modelo = autor::create(Input::all());
             return redirect()->route('modelo.index')->with('flash_message', 'Veículo inserido com sucesso!');
         }
     */
@@ -82,7 +82,7 @@ class ModeloController extends Controller
             $dados_modelo = $dados->all();
             $modelo->fill($dados_modelo)->save(); //atualiza os dados na BD
 
-            return redirect()->route('modelo.index')->with('flash_message', 'Modelo atualizado com sucesso!');
+            return redirect()->route('modelo.index')->with('flash_message', 'autor atualizado com sucesso!');
         }
     }
 

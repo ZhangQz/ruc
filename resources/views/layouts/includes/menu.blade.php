@@ -5,9 +5,9 @@
     </div>
     <ul class="nav navbar-nav">
       <li><a href="{{ route('index') }}">Início</a></li>
-      <li><a href="{{ route('veiculo.index') }}">Veículos</a></li>
-      <li><a href="{{ route('marca.index') }}">Marcas</a></li> <!-- por implementar -->
-      <li><a href="{{ route('modelo.index') }}">Modelos</a></li> <!-- por implementar -->
+      <li><a href="{{ route('noticia.index') }}">Noticia</a></li>
+      <li><a href="{{ route('categoria.index') }}">Categoria</a></li> <!-- por implementar -->
+      <li><a href="{{ route('autor.index') }}">Autor</a></li> <!-- por implementar -->
       <li><a href="{{ route('creditos') }}">Créditos</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
@@ -31,7 +31,7 @@
 
               <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                 {{ csrf_field() }}
-              </form>
+              </form>x
             </li>
           </ul>
         </li>
