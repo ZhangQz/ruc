@@ -16,19 +16,19 @@ class NoticiaController extends Controller
     }
 
     public function index() {
-        $noticias = Noticia::all(); //retorna todos os ve?culos
+        $noticias = Noticia::all(); //retorna todos os noticia
 
 
         foreach($noticias as $noticia) {
-            $noticia->autor = Autor::find($noticia->autor); //atrav?s do ID da autor, solicita os dados da autor e guarda no par?metro do ve?culo
-            $noticia->categoria = Categoria::find($noticia->categoria); //atrav?s do ID do categoria, solicita os dados do categoria e guarda no par?metro do ve?culo
+            $noticia->autor = Autor::find($noticia->idautor); //atrav?s do ID da autor, solicita os dados da autor e guarda no par?metro do ve?culo
+            $noticia->categoria = Categoria::find($noticia->idcategoria); //atrav?s do ID do categoria, solicita os dados do categoria e guarda no par?metro do ve?culo
         }
 
-        //verifica se existem ve?culos (em caso negativo, envia um erro para a view)
+        //verifica se existem noticia (em caso negativo, envia um erro para a view)
         if (is_null($noticias))
-            return redirect()->route("index")->withErrors('Erro ao carregar ve?culos. Por favor, tente mais tarde.');
+            return redirect()->route("index")->withErrors('Erro ao carregar noticia. Por favor, tente mais tarde.');
         else
-            return view("noticia.index", compact('noticia'));
+            return view("noticia.index", compact('noticias'));
     }
 
     public function create() {
@@ -48,7 +48,7 @@ class NoticiaController extends Controller
             return redirect()->route('noticia.index')->with('Ve?culo inserido com sucesso!');
     }
 
-    /* M?todo de store utilizando o facade Input
+    /* Metodo de store utilizando o facade Input
         public function store() {
             $noticia = Noticia::create(Input::all());
             return redirect()->route('noticia.index')->with('flash_message', 'Ve?culo inserido com sucesso!');
