@@ -5,9 +5,9 @@
     </div>
     <ul class="nav navbar-nav">
       <li><a href="{{ route('index') }}">Início</a></li>
-      <li><a href="{{ route('noticia.index') }}">Noticia</a></li>
-      <li><a href="{{ route('categoria.index') }}">Categoria</a></li> <!-- por implementar -->
-      <li><a href="{{ route('autor.index') }}">Autor</a></li> <!-- por implementar -->
+      <li><a href="{{ route('programa_locutor.index') }}">Programa_Locutores</a></li>
+      <li><a href="{{ route('programa.index') }}">Programa</a></li> <!-- por implementar -->
+      <li><a href="{{ route('locutor.index') }}">Locutor</a></li> <!-- por implementar -->
       <li><a href="{{ route('creditos') }}">Créditos</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">

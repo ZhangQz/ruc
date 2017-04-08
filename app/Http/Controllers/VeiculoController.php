@@ -28,7 +28,7 @@ class VeiculoController extends Controller
         if (is_null($veiculos))
             return redirect()->route("index")->withErrors('Erro ao carregar ve�culos. Por favor, tente mais tarde.');
         else
-           return view("noticia.index", compact('noticia'));
+           return view("noticia.index", compact('noticiad'));
     }
 
     public function create() {

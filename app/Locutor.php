@@ -13,8 +13,8 @@ class Locutor extends Model
 	protected $fillable = array("nome");
 	public $timestamps = true;
 
-	public function programas()
+	public function programa_locutor()
 	{
-		return $this->hasMany('App\Programa');
+		return $this->hasMany('App\Prorama_Locutor');
 	}
 }

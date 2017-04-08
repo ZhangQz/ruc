@@ -10,7 +10,7 @@ class Programa_Locutor extends Model
 {
     protected $table = "programa_locutor";
     protected $primaryKey = "idprograma_locutor";
-    protected $fillable = array("idprograma", "idlocutor");
+    protected $fillable = array("programa", "locutor");
     public $timestamps = true;
 
     public function programa() {
@@ -19,5 +19,9 @@ class Programa_Locutor extends Model
 
     public function locutor() {
         return $this->belongsTo('App\Locutor');
+    }
+
+    public function grelhageral(){
+        return $this->hasMany('App\GrelhaGeral');
     }
 }
