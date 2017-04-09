@@ -11,44 +11,40 @@ use App\Categoria;
 
 class NoticiaController extends Controller
 {
-    public function __construct() {
-        $this->middleware('auth');
-    }
-
     public function index() {
-        $noticias = Noticia::all(); //retorna todos os ve?culos
+        $noticias = Noticia::all();
 
 
         foreach($noticias as $noticia) {
-            $noticia->autor = Autor::find($noticia->autor); //atrav?s do ID da autor, solicita os dados da autor e guarda no par?metro do ve?culo
-            $noticia->categoria = Categoria::find($noticia->categoria); //atrav?s do ID do categoria, solicita os dados do categoria e guarda no par?metro do ve?culo
+            $noticia->autor = Autor::find($noticia->autor);
+            $noticia->categoria = Categoria::find($noticia->categoria);
         }
 
-        //verifica se existem ve?culos (em caso negativo, envia um erro para a view)
+
         if (is_null($noticias))
-            return redirect()->route("index")->withErrors('Erro ao carregar ve?culos. Por favor, tente mais tarde.');
+            return redirect()->route("index")->withErrors('Erro ao carregar noticias. Por favor, tente mais tarde.');
         else
             return view("noticia.index", compact('noticias'));
     }
 
     public function create() {
-        $autors = Autor::all(); //retorna todas as autors
-        $categorias = Categoria::all(); //retorna todos os categorias
+        $autors = Autor::all();
+        $categorias = Categoria::all();
 
-        return view("noticia.create", compact('autors', 'categorias')); //envia as autors e categorias para a view
+        return view("noticia.create", compact('autors', 'categorias'));
     }
 
     public function store(Request $dados) {
-        $noticia = Noticia::create($dados->all()); //cria o ve?culo com os dados do formul?rio (utilizei a facade Request)
+        $noticia = Noticia::create($dados->all());
 
-        //verifica se o ve?culo foi criado com sucesso
+
         if(is_null($noticia))
-            return redirect()->route('noticia.index')->withErrors('Erro ao criar ve?culo. Por favor, tente novamente.');
+            return redirect()->route('noticia.index')->withErrors('Erro ao criar noticia. Por favor, tente novamente.');
         else
-            return redirect()->route('noticia.index')->with('Ve?culo inserido com sucesso!');
+           return redirect()->route('noticia.index')->with('Noticia inserido com sucesso!');
     }
 
-    /* M?todo de store utilizando o facade Input
+    /* Metodo de store utilizando o facade Input
         public function store() {
             $noticia = Noticia::create(Input::all());
             return redirect()->route('noticia.index')->with('flash_message', 'Ve?culo inserido com sucesso!');
@@ -56,28 +52,27 @@ class NoticiaController extends Controller
     */
 
     public function show($id) {
-        $noticia = Noticia::findOrFail($id); //retorna o ve?culo a mostrar
-        $noticia->autor = Autor::find($noticia->autor); //atrav?s do ID da autor, solicita os dados da autor e guarda no par?metro do ve?culo
-        $noticia->categoria = Categoria::find($noticia->categoria); //atrav?s do ID do categoria, solicita os dados do categoria e guarda no par?metro do ve?culo
+        $noticia = Noticia::findOrFail($id);
+        $noticia->autor = Autor::find($noticia->autor);
+        $noticia->categoria = Categoria::find($noticia->categoria);
 
-        //verifica se o ve?culo foi preenchido com sucesso
+
         if (is_null($noticia))
-            return redirect()->route('noticia.index')->withErrors('Erro ao carregar ve?culo. Por favor, tente novamente.');
+            return redirect()->route('noticia.index')->withErrors('Erro ao carregar noticia. Por favor, tente novamente.');
         else
             return view('noticia.item', compact('noticia'));
     }
 
     public function edit($id) {
-        $noticia = Noticia::findOrFail($id); //retorna o ve?culo a mostrar
+        $noticia = Noticia::findOrFail($id);
 
-        //verificar se o ve?culo existe (em caso negativo, envia um erro para a view)
         if (is_null($noticia)) {
             return redirect()->route('noticia.index')->withErrors('Erro ao carregar ve?culo. Por favor, tente novamente.');
         }
         else
         {
-            $autors = Autor::all(); //retorna todas as autors
-            $categorias = Categoria::all(); //retorna todas os categorias
+            $autors = Autor::all();
+            $categorias = Categoria::all();
 
             return view('noticia.edit', compact('noticia', 'autors', 'categorias'));
         }

@@ -4,8 +4,9 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Programação III - Exemplo Prático Laravel</title>
+		<title>RUC</title>
 		<link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+		<link rel="stylesheet" href="{{ asset('css/stylesheet.css') }}">
 		<!-- CSRF Token -->
 		<meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -44,7 +45,7 @@
 		</main>
 
 		<footer class="footer navbar-inverse navbar-fixed-bottom">
-			<h4 class="text-primary text-center">ISMT ©Copyright 2017 // Multimédia 2º Ano</h4>
+			<h4 class="text-primary text-center">Zhang Qinzhe ©Copyright 2017 // Multimédia 2º Ano // Programação II</h4>
 		</footer>
 
 		<script src="{{ asset('js/jquery-3.1.1.min.js') }}"></script>
